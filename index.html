@@ -36,7 +36,15 @@
 
     <link rel="shortcut icon" href="favicon.png">
 
+    <!-- angular source -->
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
 
+   <!-- angular script -->
+   <script src="fashionshop.js"></script>
 
 </head>
 
@@ -96,7 +104,6 @@
     </div>
 
     <!-- *** TOP BAR END *** -->
-    
     <!-- *** NAVBAR ***
  _________________________________________________________ -->
 
@@ -274,12 +281,8 @@
     <!-- *** NAVBAR END *** -->
 
 
-
     <div id="all">
-
-
-        <!-- /#content -->
-
+        <ui-view></ui-view>
         <!-- *** FOOTER ***
  _________________________________________________________ -->
         <div id="footer" data-animate="fadeInUp">
