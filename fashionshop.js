@@ -5,7 +5,7 @@
     .config(config)
     .run(run);
 
-  function config($stateProvider){
+  function config($stateProvider, $urlRouterProvider){
 
     $stateProvider
       .state('home', {//v
@@ -134,6 +134,8 @@
           state:'verification'
         }
       });
+
+      $urlRouterProvider.otherwise("/");
   };
 
   function run($rootScope, $http, $location, $localStorage, authenticationService, $state) {
@@ -144,7 +146,7 @@
     }
     $rootScope.isLogin = false;
 
-    $rootScope.baseUrl = 'http://localhost:8000';
+    $rootScope.baseUrl = '10.30.32.137:8000';
 
     if ($localStorage.currentUser) {
       $http.defaults.headers.common.Authorization =  $localStorage.currentUser.token;
