@@ -13,7 +13,8 @@
                     <h1>Add Product</h1>
                     <hr>
                    <label class="custom-file">
-                        <input type="file" ngf-select ng-model="picFile" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFile" required class="custom-file-input">
+                        <!-- <input type="file" ngf-select ng-model="picFile" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFile" required class="custom-file-input"> -->
+                        <input type="file" ngf-select ng-model="vm.picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFile">
                         <span class="custom-file-control"></span>
                     </label>
 
@@ -22,8 +23,8 @@
 
                 <div class="col-md-6">
                     <div class="box">
-                        <form ng-submit="vm.addProduk()">
-
+                        <!-- <form ng-submit="vm.addProduk()"> -->
+                        <form name="addForm">
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" required ng-model="vm.nama">
@@ -53,7 +54,8 @@
                                 <textarea class="form-control" rows="5" ng-model="vm.deskripsi"></textarea required>
                             </div>
                             <div class="text-right">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+                                <button class="btn btn-primary" ng-disabled="!addForm.$valid" ng-click="vm.addProdukWithImage(vm.picFile)">Save</button>
                             </div>
                         </form>
                     </div>
