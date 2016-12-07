@@ -69,6 +69,7 @@
    <script src="transaction.controller.js"></script>
    <script src="updateProduct.controller.js"></script>
    <script src="verification.controller.js"></script>
+   <script src="myOrder.controller.js"></script>
 
    <!-- angular service -->
    <script src="partials/Authentication.service.js"></script>
@@ -214,7 +215,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="basket.html" ng-class="{'active' : state=='basket'}" ng-if="type != '1' && type !='3'">My Order</a></li>
+                    <li><a ui-sref="myOrder" ng-class="{'active' : state=='basket'}" ng-if="type != '1' && type !='3'">My Order</a></li>
 
                     <li><a ui-sref="listProduct" ng-if="type == '1'">Product</a></li>
                     <li><a ui-sref="verification" ng-if="type == '1'">Payment</a></li>
