@@ -75,7 +75,7 @@
     function getCart(id, callback){
       $http.get($rootScope.baseUrl+'/api/transaksi/detail/'+id)
         .success(function (response) {
-          console.log(response);
+          console.log(response.content.detail_transaksi);
           if (response.code == "SUCCESS_GET") {
             callback(response.content);
           }else{
