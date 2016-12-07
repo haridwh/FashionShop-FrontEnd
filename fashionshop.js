@@ -148,6 +148,15 @@
         data:{
           state:'kurir'
         }
+      })
+      .state('myOrder',{
+        url:'/myOrder',
+        templateUrl:'myOrder.html',
+        controller: 'myOrderController',
+        controllerAs: 'vm', 
+        data:{
+          state:'myOrder'
+        }
       });
       $urlRouterProvider.otherwise("/");
   };
