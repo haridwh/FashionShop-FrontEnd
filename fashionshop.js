@@ -5,7 +5,7 @@
     .config(config)
     .run(run);
 
-  function config($stateProvider){
+  function config($stateProvider, $urlRouterProvider){
 
     $stateProvider
       .state('home', {//v
@@ -46,7 +46,9 @@
       })
       .state('category',{
         url:'/produk/kategori',
-        templateUrl:'category.html',
+        templateUrl:'categorycategory.html',
+        templateUrl:'categorycategory.html',
+        templateUrl:'categorycategory.html',
         controller:'categoryController',
         controllerAs:'vm',
         data:{
@@ -76,7 +78,11 @@
         templateUrl:'checkout3.html',
         controller:'checkout3Controller',
         controllerAs:'vm',
-        data:{
+        data:{        templateUrl:'categorycategory.html',
+        templateUrl:'categorycategory.html',
+        templateUrl:'categorycategory.html',
+        templateUrl:'categorycategory.html',
+
           state:'checkout3'
         }
       })
@@ -133,7 +139,17 @@
         data:{
           state:'verification'
         }
+      })
+      .state('kurir',{
+        url:'/delivery',
+        templateUrl:'kurir.html',
+        controller:'kurirController',
+        controllerAs:'vm',
+        data:{
+          state:'kurir'
+        }
       });
+      $urlRouterProvider.otherwise("/");
   };
 
   function run($rootScope, $http, $location, $localStorage, authenticationService, $state) {
@@ -168,8 +184,10 @@
         || $location.path() == '/produk' || $location.path() == '/produk/kategori')) {
           if ($rootScope.type == 1) {
               $state.go('listProduct');
-          }else{
+          }else if ($rootScope.type == 2) {
               $state.go('home');
+          }else{
+              $state.go('kurir');
           }
       }
 

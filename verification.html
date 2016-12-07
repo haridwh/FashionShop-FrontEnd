@@ -20,7 +20,9 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
+                                            <th>Date</th>
                                             <th >Member Name</th>
+                                            <th>Status</th>
                                             <th colspan="2">Total</th>
                                             <th>Verification</th>
                                         </tr>
@@ -28,16 +30,17 @@
                                     <tbody>
                                         <tr ng-repeat = "verify in vm.transaksi">
                                             <td>{{$index+1}}</td>
+                                            <td>{{verify.waktu}}</td>
                                             <td >Whte Blouse Armani</td>
+                                            <td>{{verify.status}}</td>
                                             <td >{{verify.total}}</td>
                                             <td>
                                                 <a href="#">
                                                     <img src="img/detailsquare.jpg" alt="White Blouse Armani">
                                                 </a>
                                             </td>
-                                            <td ><a href="#"><i class="fa fa-check"></i></a>
+                                            <td ><a ng-click="vm.verification(verify)"><i class="fa fa-check"></i></a>
                                             </td>
-                                            <td><a href="#"><i class="fa fa-times"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>

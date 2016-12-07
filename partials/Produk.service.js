@@ -11,6 +11,7 @@
     Service.getProdukByID = getProdukByID;
     Service.addProduk = addProduk;
     Service.deleteProduk = deleteProduk;
+    Service.updateProduk = updateProduk;
 
     return Service;
 

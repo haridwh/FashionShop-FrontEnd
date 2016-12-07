@@ -17,6 +17,7 @@
       produkService.getProdukByID($rootScope.idProduk, function (produk) {
         if (produk) {
           vm.produk=produk;
+          console.log(vm.produk.kategori);
           vm.produk.stok=parseInt(vm.produk.stok);
         }
       })
