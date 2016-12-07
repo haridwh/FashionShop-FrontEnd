@@ -13,6 +13,7 @@
 
     function getAllVerify() {
       transaksiService.getAllVerify(function (allVerify) {
+        console.log(allVerify);
         if (allVerify) {
           vm.transaksi = allVerify;
         }
