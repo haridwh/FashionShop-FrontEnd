@@ -13,11 +13,12 @@
     Service.getAllDelivery = getAllDelivery;
     Service.changeStatus = changeStatus;
     Service.addToCart = addToCart;
+    Service.getTransaksi = getTransaksi;
 
     return Service;
 
-    function getTransaksi(id) {
-      $http.get($rootScope.baseUrl+'/transaksi/'+id)
+    function getTransaksi(id, callback) {
+      $http.get($rootScope.baseUrl+'/api/transaksi/'+id)
         .success(function (response) {
           if (response.code=="SUCCESS_GET") {
             callback(response.content);
