@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('fashionshop',['ui.router', 'ngMessages', 'ngStorage', 'ngRoute'])
+  angular.module('fashionshop',['ui.router', 'ngMessages', 'ngStorage', 'ngRoute', 'ngFileUpload'])
     .config(config)
     .run(run);
 
