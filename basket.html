@@ -29,20 +29,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <a href="#">
-                                                    <img src="img/detailsquare.jpg" alt="White Blouse Armani">
-                                                </a>
-                                            </td>
-                                            <td><a href="#">White Blouse Armani</a>
-                                            </td>
-                                            <td>
-                                                <input type="number" value="2" class="form-control">
-                                            </td>
-                                            <td>Rp123.000</td>
-                                            <td>Rp0</td>
-                                            <td>Rp246.000</td>
+                                        <tr ng-repeat="cart in vm.cart">
+                                            <td><a><img src="img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
+                                            <td><a>{{cart.detail_transaksi.produk.nama}}</a></td>
+                                            <td>{{cart.detail_transaksi.jml}}</td>
+                                            <td>{{cart.detail_transaksi.produk.harga}}</td>
+                                            <td>-</td>
+                                            <td>{{cart.detail_transaksi.jml * cart.detail_transaksi.produk.harga}}</td>
                                             <td><a href="#"><i class="fa fa-trash-o"></i></a>
                                             </td>
                                         </tr>

@@ -13,6 +13,7 @@
     Service.getAllDelivery = getAllDelivery;
     Service.changeStatus = changeStatus;
     Service.addToCart = addToCart;
+    Service.getCart = getCart;
 
     return Service;
 
@@ -71,6 +72,18 @@
         });
     }
 
+    function getCart(id, callback){
+      $http.get($rootScope.baseUrl+'/api/transaksi/detail/'+id)
+        .success(function (response) {
+          console.log(response);
+          if (response.code == "SUCCESS_GET") {
+            callback(response.content);
+          }else{
+            callback(false);
+          }
+        })
+    }
+
     function changeStatus(id, callback){
       $http.put($rootScope.baseUrl+'/api/transaksi/arrived/'+id)
         .success(function (response) {
@@ -85,7 +98,6 @@
     function addToCart(idPem, jml, idProduk, callback) {
       $http.post($rootScope.baseUrl+'/api/masukKeranjang', {id_pembeli:idPem, jml:jml, id_produk:idProduk})
         .success(function (response) {
-          console.log(response);
           if (response.code == "SUCCESS_POST") {
             callback(response.message);
           }else{
