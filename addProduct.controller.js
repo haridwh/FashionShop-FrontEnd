@@ -28,7 +28,6 @@
     }
 
     function addProdukWithImage(file) {
-      console.log('hmm');
       file.upload = Upload.upload({
         url: $rootScope.baseUrl + '/api/produk',
         data:{
