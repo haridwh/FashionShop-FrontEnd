@@ -26,13 +26,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Id001
-                                            </td>
-                                            <td >Whte Blouse Armani
-                                            </td>
-                                            <td >780000
-                                            </td>
+                                        <tr ng-repeat = "verify in vm.transaksi">
+                                            <td>{{$index+1}}</td>
+                                            <td >Whte Blouse Armani</td>
+                                            <td >{{verify.total}}</td>
                                             <td>
                                                 <a href="#">
                                                     <img src="img/detailsquare.jpg" alt="White Blouse Armani">

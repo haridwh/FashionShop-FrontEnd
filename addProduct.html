@@ -1,25 +1,19 @@
         <div id="content">
             <div class="container">
 
-                <div class="col-md-12">
-
-                    <ul class="breadcrumb">
-                        <li><a href="#">Product</a>
-                        </li>
-                    </ul>
-
-                </div>
-
                 <!-- <div class="col-md-3">
                     <div class="box">
 
                 </div> -->
+                <div class="alert alert-danger alert-dismissable" ng-hide="vm.isInserted">
+                  <strong>Failed</strong> to add new products.</div>
                 <div class="col-md-6">
+
                     <div class="box">
                     <h1>Add Product</h1>
                     <hr>
                    <label class="custom-file">
-                        <input type="file" id="file" class="custom-file-input">
+                        <input type="file" ngf-select ng-model="picFile" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFile" required class="custom-file-input">
                         <span class="custom-file-control"></span>
                     </label>
 
@@ -28,49 +22,38 @@
 
                 <div class="col-md-6">
                     <div class="box">
+                        <form ng-submit="vm.addProduk()">
 
-
-                        <form action="customer-orders.html" method="post">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" required ng-model="vm.nama">
                             </div>
                             <div class="form-group">
                                 <label for="categories">Categories</label>
-                                <select class="form-control" id="categories">
-                                <option>Shirt</option>
-                                <option>T-Shirt</option>
-                                <option>Jacket&Sweater</option>
-                                <option>Batik</option>
-                                <option>Suit</option>
-                                <option>Dress</option>
+                                <select class="form-control" ng-model="vm.kategori" required>
+                                <option value="Shirt">Shirt</option>
+                                <option value="T-Shirt">T-Shirt</option>
+                                <option value="Jacket&Sweater">Jacket&Sweater</option>
+                                <option value="Batik">Batik</option>
+                                <option value="Suit">Suit</option>
+                                <option value="Dress">Dress</option>
                                 </select>
                             </div>
                             <label for="price">Quantity</label>
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" data-value="-1" data-target="#spinner2" data-toggle="spinner">
-                                        <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                </span>
-                                <input type="text" data-ride="spinner" id="spinner2" class="form-control input-number" value="0" data-min="0" data-max="2">
-                                <span class="input-group-btn">
-                                   <button type="button" class="btn btn-default" data-value="2" data-target="#spinner2" data-toggle="spinner" data-on="mousehold">
-                                      <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                </span>
+                            <div class="form-group">
+                                <input type="number" class="form-control input-number" ng-model="vm.stok"  data-min="0" required>
                             </div>
 
                            <div class="form-group">
                                 <label for="price">Price</label>
-                                <input type="text" class="form-control" id="price">
+                                <input type="text" class="form-control" ng-model="vm.harga" required>
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea class="form-control" id="description" rows="5"></textarea>
+                                <textarea class="form-control" rows="5" ng-model="vm.deskripsi"></textarea required>
                             </div>
                             <div class="text-right">
-                                <button type="submit" class="btn btn-primary"><!-- <i class="fa fa-user-md"></i> --> Save</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </form>
                     </div>

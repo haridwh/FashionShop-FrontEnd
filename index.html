@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="fashionshop">
 
 <head>
 
@@ -44,7 +44,36 @@
    <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
 
    <!-- angular script -->
+   <script src="ng-file-upload-bower-12.2.13/ng-file-upload-shim.js"></script> <!-- for no html5 browsers support -->
+   <script src="ng-file-upload-bower-12.2.13/ng-file-upload.js"></script>
    <script src="fashionshop.js"></script>
+
+   <!-- angular controller -->
+   <script src="addProduct.controller.js"></script>
+   <script src="basket.controller.js"></script>
+   <script src="blog.controller.js"></script>
+   <script src="category.controller.js"></script>
+   <script src="checkout1.controller.js"></script>
+   <script src="checkout3.controller.js"></script>
+   <script src="checkout4.controller.js"></script>
+   <script src="contact.controller.js"></script>
+   <script src="customer-account.controller.js"></script>
+   <script src="customer-wishlist.controller.js"></script>
+   <script src="detail.controller.js"></script>
+   <script src="home.controller.js"></script>
+   <script src="kurir.controller.js"></script>
+   <script src="listProduct.controller.js"></script>
+   <script src="login.controller.js"></script>
+   <script src="post.controller.js"></script>
+   <script src="register.controller.js"></script>
+   <script src="transaction.controller.js"></script>
+   <script src="updateProduct.controller.js"></script>
+   <script src="verification.controller.js"></script>
+
+   <!-- angular service -->
+   <script src="partials/Authentication.service.js"></script>
+   <script src="partials/Produk.service.js"></script>
+   <script src="partials/Transaksi.service.js"></script>
 
 </head>
 
@@ -52,61 +81,11 @@
 
     <!-- *** TOPBAR ***
  _________________________________________________________ -->
-    <div id="top">
-        <div class="container">
-            <!-- <div class="col-md-6 offer" data-animate="fadeInDown">
-                <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $50!</a>
-            </div> -->
-            <div class="col-md-12" data-animate="fadeInDown">
-                <ul class="menu">
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
-                    </li>
-                    <li><a href="register.html">Register</a>
-                    </li>
-                    <li><a href="contact.html">Contact</a>
-                    </li>
-                    <li><a href="#">Recently viewed</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="Login">Customer login</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form action="customer-orders.html" method="post">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="email-modal" placeholder="email">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="password-modal" placeholder="password">
-                            </div>
-
-                            <p class="text-center">
-                                <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
-                            </p>
-
-                        </form>
-
-                        <p class="text-center text-muted">Not registered yet?</p>
-                        <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
 
     <!-- *** TOP BAR END *** -->
     <!-- *** NAVBAR ***
  _________________________________________________________ -->
-
+  <div ng-if = "state!='login' && state!='register'" >
     <div class="navbar navbar-default yamm" role="navigation" id="navbar">
         <div class="container">
             <div class="navbar-header">
@@ -133,9 +112,8 @@
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="index.html">Home</a>
-                    </li>
-                    <li class="dropdown yamm-fw">
+                    <li  ng-class="{'active' : state=='home'}" ng-if="type != '1'"><a href="index.html">Home</a></li>
+                    <li class="dropdown yamm-fw" ng-class="{'active' : state=='detail'}" ng-if="type != '1'">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Category <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
@@ -225,26 +203,29 @@
                         </ul>
                     </li>
 
-                    <li><a href="basket.html">My Order</a>
+                    <li><a href="basket.html" ng-class="{'active' : state=='basket'}" ng-if="type != '1'">My Order</a></li>
 
-
-
-
+                    <li><a ui-sref="listProduct" ng-if="type == '1'">Product</a></li>
+                    <li><a ui-sref="verification" ng-if="type == '1'">Payment</a></li>
 
             </div>
             <!--/.nav-collapse -->
 
             <div class="navbar-buttons">
                 <div class="navbar-collapse collapse right" id="account">
-                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#account">
+                    <button type="button" class="btn navbar-btn btn-primary" ng-click='logout()' ng-show="isLogin">
+                        <span class="sr-only">Toggle account</span>
+                        <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" class="btn navbar-btn btn-primary" ui-sref='login' ng-hide="isLogin">
                         <span class="sr-only">Toggle account</span>
                         <i class="fa fa-user"></i>
                     </button>
                 </div>
 
 
-                <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items in cart</span></a>
+                <div class="navbar-collapse collapse right" id="basket-overview" ng-if = "type == '2'">
+                    <a ng-show="isLogin" href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items in cart</span></a>
                 </div>
                 <!--/.nav-collapse -->
 
@@ -280,11 +261,39 @@
 
     <!-- *** NAVBAR END *** -->
 
-
+  </div>
     <div id="all">
+      <div ng-if="state=='home'">
+        <div id="content">
+
+            <div class="container">
+                <div class="col-md-12">
+                </br>
+                <center><img src="img/mainlogo.png" alt="Fashion Shop logo" class="hidden-xs"></center>
+                    <div id="main-slider">
+                        <div class="item">
+                            <img class="img-responsive" src="img/slideranak2.jpg" alt="">
+                        </div>
+                         <div class="item">
+                            <img class="img-responsive" src="img/slidercewee.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="img/slideranak3.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- /#main-slider -->
+                </div>
+            </div>
+
         <ui-view></ui-view>
+      </div>
+    </div>
+      <div ng-if="state!='home'">
+        <ui-view></ui-view>
+      </div>
         <!-- *** FOOTER ***
  _________________________________________________________ -->
+    <div ng-if = "state!='login' && state!='register' && state!='updateProduk'" >
         <div id="footer" data-animate="fadeInUp">
             <div class="container">
                 <div class="row">
@@ -436,7 +445,9 @@
 
 
         <!-- *** COPYRIGHT ***
+
  _________________________________________________________ -->
+    </div>
         <div id="copyright">
             <div class="container">
                 <div class="col-md-6">

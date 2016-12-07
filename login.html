@@ -27,8 +27,6 @@
 
     <!-- *** NAVBAR END *** -->
 
-    <div id="all">
-
         <div id="content">
             <div class="container">
 
@@ -36,85 +34,23 @@
                 <br>
                 <br>
                 </div>
-
-                <!-- <div class="col-md-3">
-                    <div class="box">
-
-                </div> -->
-
-                <!-- <div class="col-md-6">
-                    <div class="box">
-                        <h1>Registration</h1>
-
-                        <p class="lead">Not our registered customer yet?</p>
-
-
-                        <hr>
-
-                        <form action="customer-orders.html" method="post">
-                            <div class="form-group">
-                                <label for="fullname">Fullname</label>
-                                <input type="text" class="form-control" id="fullname">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Username</label>
-                                <input type="text" class="form-control" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password">
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Email</label>
-                                <input type="text" class="form-control" id="name">
-                            </div>
-                             <div class="form-group">
-                                <label for="birthDate">Birth Date</label>
-                                <input type="Date" class="form-control" id="birthDate">
-                            </div>
-                             <div class-"form-group">
-                                <label for="gender">Gender</label>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                    Man</label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                                    Woman</label>
-                                </div>
-                            </div>
-                            <br/>
-                          <div class="form-group">
-                                <label for="phoneName">Phone Number</label>
-                                <input type="text" class="form-control" id="phoneName">
-                            </div>
-                          <div class="form-group">
-                                <label for="address">Address</label>
-                                <textarea class="form-control" id="description" rows="5"></textarea>
-                            </div>
-
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-user-md"></i> Register</button>
-                            </div>
-                        </form>
-                    </div>
-                </div> -->
                 <div class="col-md-3"> </div>
                 <div class="col-md-6 offset-md-3">
                     <div class="box">
                         <h1><center>Login</center></h1>
                         <hr>
 
-                        <form action="checkout1.html" method="post">
+                        <div class="alert alert-danger alert-dismissable" ng-show="vm.failLogin">
+                					<strong>Sign in failed!</strong> The username address or password that you've entered doesn't match any account.                				</div>
+
+                        <form ng-submit="vm.login()">
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email">
+                                <label for="email">Username</label>
+                                <input type="text" class="form-control" placeholder="Username" autofocus ng-model="vm.uname">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" class="form-control" placeholder="Password" ng-model="vm.password">
                             </div>
                             <a href="register.html"> Don't have an Account?</a>
                             <br>
@@ -129,13 +65,3 @@
             <!-- /.container -->
         </div>
         <!-- /#content -->
-
-
-
-
-
-
-        <!-- *** COPYRIGHT ***
- _________________________________________________________ -->
-    </div>
-    <!-- /#all -->
