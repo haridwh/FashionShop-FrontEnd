@@ -144,7 +144,8 @@
     }
     $rootScope.isLogin = false;
 
-    $rootScope.baseUrl = 'http://localhost:8000';
+
+    $rootScope.baseUrl = 'http://10.30.32.137:8000';
 
     if ($localStorage.currentUser) {
       $http.defaults.headers.common.Authorization =  $localStorage.currentUser.token;
