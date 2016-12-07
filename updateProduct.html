@@ -5,11 +5,11 @@
                     <div class="box">
                       <h1>Update Product</h1>
                     <hr>
-                    <center><img style="height:425px;width:300px;" src="img/product2a.jpg" ></center>
+                    <center><img style="height:425px;width:300px;" ng-src="{{baseUrl}}/imageProduct/{{vm.produk.image_url}}" alt="Product Image"></center>
                     <br>
                     <br>
                    <label class="custom-file">
-                        <input type="file" id="file" class="custom-file-input">
+                        <button type="file" ngf-select="vm.uploadPhoto($file, $invalidFiles, {{vm.produk.id}})" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">Change Photo</button>
                         <span class="custom-file-control"></span>
                     </label>
 
