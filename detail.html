@@ -16,13 +16,14 @@
                                 </p> -->
                                 <p class="price">{{vm.produk.harga}}</p>
 
+                                <form name="buyForm">
                                 <p class="text-center buttons">
-
-                                    <input type="number" name="homepage" class="form-snipper" >
+                                    <input type="number" name="homepage" class="form-snipper" data-min="1" required >
                                     <br>
                                     <br>
-                                    <a href="basket.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Apply</a>
+                                    <button type="submit" class="btn btn-default" ng-disabled="!buyForm.$valid">Add to Cart</button>
                                 </p>
+                              </form>
 
 
                             </div>

@@ -67,6 +67,13 @@
           }else{
             callback(false);
           }
+        });
+    }
+
+    function addToCart(idPem, jml, idProduk) {
+      $http.post($rootScope.baseUrl+'/api/masukKeranjang', {id_pembeli:idPem, jml:jml, id_produk:idProduk})
+        .success(function () {
+
         })
     }
   }
