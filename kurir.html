@@ -32,11 +32,9 @@
                                             <td>{{$index+1}}</td>
                                             <td >Mr x</td>
                                             <td >Tubagus Street</td>
-                                            <td>08765556567
-                                            </td>
-                                            <td >Pending
-                                            </td>
-                                            <td><a href="#"><i class="fa fa-check"></i></a>
+                                            <td>08765556567</td>
+                                            <td >{{transaksi.status}}</td>
+                                            <td><a ng-click="vm.changeStatus(transaksi)"><i class="fa fa-check"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -48,7 +46,7 @@
 
                             <div class="box-footer">
 
-                                <div class="pull-right">
+                                <!-- <div class="pull-right">
                                     <button type="submit" class="btn btn-primary">Next<i class="fa fa-chevron-right"></i>
 
                                     </button>
@@ -58,7 +56,7 @@
                                 <div class="pull-right">
                                     <button type="submit" class="btn btn-primary"> <i class="fa fa-chevron-left"></i> Back
                                     </button>
-                                </div>
+                                </div> -->
 
 
 

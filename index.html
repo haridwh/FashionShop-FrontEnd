@@ -123,8 +123,8 @@
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-left">
-                    <li  ng-class="{'active' : state=='home'}" ng-if="type != '1'"><a href="index.html">Home</a></li>
-                    <li class="dropdown yamm-fw" ng-class="{'active' : state=='detail'}" ng-if="type != '1'">
+                    <li  ng-class="{'active' : state=='home'}" ng-if="type != '1' && type !='3'"><a href="index.html">Home</a></li>
+                    <li class="dropdown yamm-fw" ng-class="{'active' : state=='detail'}" ng-if="type != '1' && type !='3' ">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Category <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
@@ -214,7 +214,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="basket.html" ng-class="{'active' : state=='basket'}" ng-if="type != '1'">My Order</a></li>
+                    <li><a href="basket.html" ng-class="{'active' : state=='basket'}" ng-if="type != '1' && type !='3'">My Order</a></li>
 
                     <li><a ui-sref="listProduct" ng-if="type == '1'">Product</a></li>
                     <li><a ui-sref="verification" ng-if="type == '1'">Payment</a></li>
@@ -241,7 +241,7 @@
                 <!--/.nav-collapse -->
 
                 <div class="navbar-collapse collapse right" id="search-not-mobile">
-                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search"  ng-show="type != '1'">
+                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search"  ng-show="type != '1' && type != '3' ">
                         <span class="sr-only">Toggle search</span>
                         <i class="fa fa-search"></i>
                     </button>
@@ -304,7 +304,7 @@
       </div>
         <!-- *** FOOTER ***
  _________________________________________________________ -->
-    <div ng-if = "state!='login' && state!='register' && state!='updateProduk' && type!='1'" >
+    <div ng-if = "state!='login' && state!='register' && state!='updateProduk' && type!='1' && type !='3'" >
         <div id="footer" data-animate="fadeInUp">
             <div class="container">
                 <div class="row">

@@ -8,6 +8,7 @@
     var vm = this;
 
     vm.transaksi = [];
+    vm.changeStatus = changeStatus;
     getAllDelivery();
 
     function getAllDelivery() {
@@ -15,6 +16,12 @@
         if (allDelivery) {
           vm.transaksi = allDelivery;
         }
+      });
+    }
+
+    function changeStatus(transaksi) {
+      transaksiService.changeStatus(transaksi.id, function (response) {
+        vm.transaksi.splice(vm.transaksi.indexOf(transaksi),1);
       })
     }
   }

@@ -180,8 +180,7 @@
       }
 
       if ($localStorage.currentUser && ($location.path() == '/'
-        || $location.path() == '/login' || $location.path() == '/registrasi'
-        || $location.path() == '/produk' || $location.path() == '/produk/kategori')) {
+        || $location.path() == '/login' || $location.path() == '/registrasi')) {
           if ($rootScope.type == 1) {
               $state.go('listProduct');
           }else if ($rootScope.type == 2) {

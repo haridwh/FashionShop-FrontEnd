@@ -11,6 +11,7 @@
     Service.getAllVerify = getAllVerify;
     Service.verification = verification;
     Service.getAllDelivery = getAllDelivery;
+    Service.changeStatus = changeStatus;
 
     return Service;
 
@@ -39,7 +40,6 @@
     function verification(id, callback){
       $http.put($rootScope.baseUrl+'/api/transaksi/verified/'+id)
         .success(function (response) {
-          console.log(response);
           if (response.code == "SUCCESS_UPDATE") {
             callback(response.message);
           }else{
@@ -57,6 +57,17 @@
             callback(false);
           }
         });
+    }
+
+    function changeStatus(id, callback){
+      $http.put($rootScope.baseUrl+'/api/transaksi/arrived/'+id)
+        .success(function (response) {
+          if (response.code == "SUCCESS_UPDATE") {
+            callback(response.message);
+          }else{
+            callback(false);
+          }
+        })
     }
   }
 
