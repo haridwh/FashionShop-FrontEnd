@@ -115,7 +115,7 @@
                         <i class="fa fa-search"></i>
                     </button>
                     <a class="btn btn-default navbar-toggle" href="basket.html">
-                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">3 items in cart</span>
+                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">Cart</span>
                     </a>
                 </div>
             </div>
@@ -125,95 +125,6 @@
 
                 <ul class="nav navbar-nav navbar-left">
                     <li  ng-class="{'active' : state=='home'}" ng-if="type != '1' && type !='3'"><a href="index.html">Home</a></li>
-                    <li class="dropdown yamm-fw" ng-class="{'active' : state=='detail'}" ng-if="type != '1' && type !='3' ">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Category <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <div class="yamm-content">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h5>Shirt</h5>
-                                            <ul>
-                                                <li><a href="category.html">Denim</a>
-                                                </li>
-                                                <li><a href="category.html">Flanel</a>
-                                                </li>
-                                                <li><a href="category.html">Prints</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>T-Shirt</h5>
-                                            <ul>
-                                                <li><a href="categorykaos.html">Wangky/Polo T-shirt</a>
-                                                </li>
-                                                <li><a href="categorykaos.html">Raglan</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Jacket & Sweater</h5>
-                                            <ul>
-                                                <li><a href="categoryjaket.html">Parka</a>
-                                                </li>
-                                                <li><a href="categoryjaket.html">Bomber</a>
-                                                </li>
-                                                <li><a href="categoryjaket.html">Duffle Coat</a>
-                                                </li>
-                                                <li><a href="categoryjaket.html">Leather Jacket</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Batik</h5>
-                                            <ul>
-                                                <li><a href="category.html">Batik SidoMukti</a>
-                                                </li>
-                                                 <li><a href="category.html">Batik Cirebon</a>
-                                                </li>
-                                                 <li><a href="category.html">Batik Solo</a>
-                                                </li>
-                                                 <li><a href="category.html">Batik Jepara</a>
-                                                </li>
-                                                 <li><a href="category.html">Batik Kudus</a>
-                                                </li>
-                                                <li><a href="category.html">Batik Kawung</a>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Suit</h5>
-                                            <ul>
-                                                <li><a href="category.html">British Style</a>
-                                                </li>
-                                                <li><a href="category.html">Italian Style</a>
-                                                </li>
-                                                <li><a href="category.html">American Style</a>
-                                                </li>
-                                                <li><a href="category.html">Tuxedo</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Dress</h5>
-                                            <ul>
-                                                <li><a href="category.html">Dress Babydoll</a>
-                                                </li>
-                                                <li><a href="category.html">Halter Dress</a>
-                                                </li>
-                                                <li><a href="category.html">Wrap Dress</a>
-                                                </li>
-                                                <li><a href="category.html">Full Skirt Dress</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.yamm-content -->
-                            </li>
-                        </ul>
-                    </li>
 
                     <li><a ui-sref="myOrder" ng-class="{'active' : state=='basket'}" ng-if="type != '1' && type !='3'">My Order</a></li>
 
@@ -237,16 +148,16 @@
 
 
                 <div class="navbar-collapse collapse right" id="basket-overview" ng-if = "type == '2'">
-                    <a ng-show="isLogin" href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items in cart</span></a>
+                    <a ng-show="isLogin" ui-sref="basket" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart" ></i><span class="hidden-sm">Cart</span></a>
                 </div>
                 <!--/.nav-collapse -->
 
-                <div class="navbar-collapse collapse right" id="search-not-mobile">
+                <!-- <div class="navbar-collapse collapse right" id="search-not-mobile">
                     <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search"  ng-show="type != '1' && type != '3' ">
                         <span class="sr-only">Toggle search</span>
                         <i class="fa fa-search"></i>
                     </button>
-                </div>
+                </div> -->
 
             </div>
 

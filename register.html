@@ -58,52 +58,52 @@
 
                         <hr>
 
-                        <form action="Login.html" method="post">
+                        <form name="registerForm">
                             <div class="form-group">
                                 <label for="fullname">Fullname</label>
-                                <input type="text" class="form-control" id="fullname">
+                                <input type="text" class="form-control" id="fullname" ng-model="vm.name" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Username</label>
-                                <input type="text" class="form-control" id="email">
+                                <input type="text" class="form-control" id="email" ng-model="vm.uname" required>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" class="form-control" id="password" ng-model="vm.upass" required>
                             </div>
                             <div class="form-group">
                                 <label for="name">Email</label>
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" id="name" ng-model="vm.email" required>
                             </div>
                              <div class="form-group">
                                 <label for="birthDate">Birth Date</label>
-                                <input type="Date" class="form-control" id="birthDate">
+                                <input type="Date" class="form-control" id="birthDate" ng-model="vm.tgl_lahir" required>
                             </div>
                              <div class-"form-group">
                                 <label for="gender">Gender</label>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                    <input type="radio" ng-model="vm.jenis_kelamin" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
                                     Man</label>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                                    <input type="radio" ng-model="vm.jenis_kelamin" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
                                     Woman</label>
                                 </div>
                             </div>
                             <br/>
                           <div class="form-group">
                                 <label for="phoneName">Phone Number</label>
-                                <input type="text" class="form-control" id="phoneName">
+                                <input type="text" class="form-control" id="phoneName" ng-model="vm.nomor_tlp" required>
                             </div>
                           <div class="form-group">
                                 <label for="address">Address</label>
-                                <textarea class="form-control" id="description" rows="5"></textarea>
+                                <textarea class="form-control" id="description" rows="5" ng-model="vm.alamat" required></textarea>
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-user-md"></i> Register</button>
+                                <button type="submit" ng-click="vm.register()" ng-disabled="!registerForm.$valid" class="btn btn-primary"><i class="fa fa-user-md"></i> Register</button>
                             </div>
                         </form>
                     </div>

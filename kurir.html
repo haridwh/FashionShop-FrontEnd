@@ -30,9 +30,9 @@
                                         <tbody>
                                         <tr ng-repeat="transaksi in vm.transaksi">
                                             <td>{{$index+1}}</td>
-                                            <td >Mr x</td>
-                                            <td >Tubagus Street</td>
-                                            <td>08765556567</td>
+                                            <td >{{transaksi.pembeli.user.name}}</td>
+                                            <td >{{transaksi.alamat}}</td>
+                                            <td>{{transaksi.no_tlp}}</td>
                                             <td >{{transaksi.status}}</td>
                                             <td><a ng-click="vm.changeStatus(transaksi)"><i class="fa fa-check"></i></a>
                                             </td>

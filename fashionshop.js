@@ -41,7 +41,7 @@
         controller:'registerController',
         controllerAs:'vm',
         data:{
-            state:'register'
+            state:'registrasi'
         }
       })
       .state('category',{
@@ -153,7 +153,7 @@
         url:'/myOrder',
         templateUrl:'myOrder.html',
         controller: 'myOrderController',
-        controllerAs: 'vm', 
+        controllerAs: 'vm',
         data:{
           state:'myOrder'
         }
@@ -170,7 +170,7 @@
     $rootScope.isLogin = false;
 
 
-    $rootScope.baseUrl = 'http://10.30.32.137:8000';
+    $rootScope.baseUrl = 'http://localhost:8000';
 
     if ($localStorage.currentUser) {
       $http.defaults.headers.common.Authorization =  $localStorage.currentUser.token;

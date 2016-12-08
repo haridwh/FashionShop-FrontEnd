@@ -13,10 +13,9 @@
 
                     <div class="box">
 
-                        <form method="post" action="Login.html">
+                        <form>
 
                             <h1>Shopping cart</h1>
-                            <p class="text-muted">You currently have 3 item(s) in your cart.</p>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -29,21 +28,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="cart in vm.cart">
-                                            <td><a><img src="img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
-                                            <td><a>{{cart.detail_transaksi.produk.nama}}</a></td>
-                                            <td>{{cart.detail_transaksi.jml}}</td>
-                                            <td>{{cart.detail_transaksi.produk.harga}}</td>
+                                        <tr ng-repeat = "cart in vm.cart">
+                                            <td><a><img ng-src="{{baseUrl}}/imageProduct/{{cart.produk.image_url}}" alt="White Blouse Armani"></a></td>
+                                            <td><a>{{cart.produk.nama}}</a></td>
+                                            <td>{{cart.jml}}</td>
+                                            <td>{{cart.produk.harga}}</td>
                                             <td>-</td>
-                                            <td>{{cart.detail_transaksi.jml * cart.detail_transaksi.produk.harga}}</td>
-                                            <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                                            <td>{{cart.jml * cart.produk.harga}}</td>
+                                            <!-- <td><a href="#"><i class="fa fa-trash-o"></i></a> -->
                                             </td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th colspan="5">Total</th>
-                                            <th colspan="2">Rp446.000</th>
+                                            <th colspan="2">{{vm.total}}</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -52,11 +51,8 @@
                             <!-- /.table-responsive -->
 
                             <div class="box-footer">
-                                <div class="pull-left">
-                                    <a href="category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
-                                </div>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-primary">Buy<i class="fa fa-chevron-right"></i>
+                                    <button type="submit" ui-sref='checkout1' class="btn btn-primary">Buy<i class="fa fa-chevron-right"></i>
                                     </button>
                                 </div>
                             </div>

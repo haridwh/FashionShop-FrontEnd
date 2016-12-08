@@ -13,12 +13,15 @@
     Service.getAllDelivery = getAllDelivery;
     Service.changeStatus = changeStatus;
     Service.addToCart = addToCart;
+
     Service.getCart = getCart;
+    Service.getTransaksi = getTransaksi;
+    Service.buy = buy;
 
     return Service;
 
-    function getTransaksi(id) {
-      $http.get($rootScope.baseUrl+'/transaksi/'+id)
+    function getTransaksi(id, callback) {
+      $http.get($rootScope.baseUrl+'/api/transaksi/'+id)
         .success(function (response) {
           if (response.code=="SUCCESS_GET") {
             callback(response.content);
@@ -61,6 +64,17 @@
         });
     }
 
+    function buy(alamat, no_tlp, callback){
+      $http.put($rootScope.baseUrl+'/api/createTransaksi/'+$rootScope.id, {alamat:alamat, no_tlp:no_tlp})
+        .success(function (response) {
+          if (response.code == "SUCCESS_UPDATE") {
+            callback(response.message);
+          }else{
+            callback(false);
+          }
+        })
+    }
+
     function getAllDelivery(callback) {
       $http.get($rootScope.baseUrl+'/api/transaksi/delivery')
         .success(function (response) {
@@ -75,9 +89,8 @@
     function getCart(id, callback){
       $http.get($rootScope.baseUrl+'/api/transaksi/detail/'+id)
         .success(function (response) {
-          console.log(response.content.detail_transaksi);
           if (response.code == "SUCCESS_GET") {
-            callback(response.content);
+            callback(response.content[0]);
           }else{
             callback(false);
           }
@@ -98,6 +111,7 @@
     function addToCart(idPem, jml, idProduk, callback) {
       $http.post($rootScope.baseUrl+'/api/masukKeranjang', {id_pembeli:idPem, jml:jml, id_produk:idProduk})
         .success(function (response) {
+          console.log(response);
           if (response.code == "SUCCESS_POST") {
             callback(response.message);
           }else{

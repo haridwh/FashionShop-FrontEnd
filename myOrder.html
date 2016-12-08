@@ -22,23 +22,27 @@
                                             <th>Id</th>
                                             <th>Date</th>
                                             <th>Status</th>
-                                            <th colspan="2">Total</th>
+                                            <th>Total</th>
                                             <th>Upload Receipt</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat = "verify in vm.transaksi">
+                                        <tr ng-repeat = "order in vm.orders">
                                             <td>{{$index+1}}</td>
-                                            <td>{{verify.waktu}}</td>
-                                            <td >{{verify.pembeli.user.name}}</td>
-                                            <td>{{verify.status}}</td>
-                                            <td >{{verify.total}}</td>
+                                            <td>{{order.waktu}}</td>
+                                            <td >{{order.status}}</td>
+                                            <td>{{order.total}}</td>
                                             <td>
-                                                <a href="#">
+                                                <p class="centered image-upload" data-toggle="tooltip" data-placement="right" title="Klik untuk upload struk transfer">
+                                                    <label for="file-input">
+                                                        <img ng-src="{{baseUrl}}/imageStruk/{{order.struk_url}}" alt="Receipt Photo">
+                                                    </label>
+                                                    <input id="file-input" type="file" ngf-select="vm.uploadStruk($file, $invalidFiles, order.id)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                                                </p>
+                                                <!-- <a href="#">
                                                     <img src="img/detailsquare.jpg" alt="White Blouse Armani">
-                                                </a>
+                                                </a> -->
                                             </td>
-                                            <td ><a ng-click="vm.verification(verify)"><i class="fa fa-check"></i></a>
                                             </td>
                                             </td>
                                         </tr>
@@ -50,7 +54,7 @@
                             <!-- /.table-responsive -->
 
                             <div class="box-footer">
-
+<!-- 
                                 <div class="pull-right">
                                     <button type="submit" class="btn btn-primary">Next<i class="fa fa-chevron-right"></i>
 
@@ -61,7 +65,7 @@
                                 <div class="pull-right">
                                     <button type="submit" class="btn btn-primary"> <i class="fa fa-chevron-left"></i> Back
                                     </button>
-                                </div>
+                                </div> -->
 
 
 

@@ -15,6 +15,7 @@
 
       function getDetailProduk(){
         produkService.getProdukByID($rootScope.idProduk ,function (produk) {
+          console.log(produk);
           if (produk) {
             vm.produk=produk;
           }
@@ -23,6 +24,7 @@
 
       function addToCart() {
         transaksiService.addToCart($rootScope.id, vm.jml, vm.produk.id, function (response) {
+          console.log(response);
           if (response == 'OK') {
             $state.go('basket');
           }

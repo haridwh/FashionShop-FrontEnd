@@ -8,19 +8,19 @@ _________________________________________________________ -->
                             <div class="flip-container">
                                 <div class="flipper">
                                     <div class="front">
-                                      <img src="img/product1.jpg" alt="" class="img-responsive">
+                                      <img ng-src="{{baseUrl}}/imageProduct/{{produk.image_url}}" alt="" class="img-responsive">
                                         <a ng-click = 'vm.getProduk(produk.id)'>
                                         </a>
                                     </div>
                                     <div class="back">
                                         <a ng-click = 'vm.getProduk(produk.id)'>
-                                            <img src="img/product1_2.jpg" alt="" class="img-responsive">
+                                            <img ng-src="{{baseUrl}}/imageProduct/{{produk.image_url}}" alt="" class="img-responsive">
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <a ng-click = 'vm.getProduk(produk.id)' class="invisible">
-                                <img src="img/product1.jpg" alt="" class="img-responsive">
+                                <img ng-src="{{baseUrl}}/imageProduct/{{produk.image_url}}" alt="" class="img-responsive">
                             </a>
                             <div class="text">
                                 <h3><a ng-click = 'vm.getProduk(produk.id)' >{{produk.nama}}</a></h3>
