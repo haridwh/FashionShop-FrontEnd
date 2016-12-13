@@ -35,7 +35,7 @@
                                             <td>{{cart.produk.harga}}</td>
                                             <td>-</td>
                                             <td>{{cart.jml * cart.produk.harga}}</td>
-                                            <!-- <td><a href="#"><i class="fa fa-trash-o"></i></a> -->
+                                            <td><a ng-click="vm.deleteDetailTransaksi(cart)"><i class="fa fa-trash-o"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>

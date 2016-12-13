@@ -126,7 +126,7 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li  ng-class="{'active' : state=='home'}" ng-if="type != '1' && type !='3'"><a href="index.html">Home</a></li>
 
-                    <li><a ui-sref="myOrder" ng-class="{'active' : state=='basket'}" ng-if="type != '1' && type !='3'">My Order</a></li>
+                    <li><a ui-sref="myOrder" ng-class="{'active' : state=='basket'}" ng-if="type != '1' && type !='3'" ng-show="isLogin">My Order</a></li>
 
                     <li><a ui-sref="listProduct" ng-if="type == '1'">Product</a></li>
                     <li><a ui-sref="verification" ng-if="type == '1'">Payment</a></li>

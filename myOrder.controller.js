@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	
+
 	angular.module('fashionshop')
 		.controller('myOrderController', controller);
 
@@ -14,7 +14,6 @@
 
 		function getData() {
 			transaksiService.getTransaksi($rootScope.id, function(result) {
-				console.log(vm.order);
 				vm.orders = result;
 			});
 		}
@@ -31,6 +30,6 @@
 	        $window.location.reload();
 	      });
 	    }
-		
+
 	}
 })();

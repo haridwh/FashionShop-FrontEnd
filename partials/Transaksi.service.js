@@ -17,6 +17,7 @@
     Service.getCart = getCart;
     Service.getTransaksi = getTransaksi;
     Service.buy = buy;
+    Service.deleteDetailTransaksi = deleteDetailTransaksi;
 
     return Service;
 
@@ -97,8 +98,8 @@
         })
     }
 
-    function changeStatus(id, callback){
-      $http.put($rootScope.baseUrl+'/api/transaksi/arrived/'+id)
+    function changeStatus(id, idKurir, callback){
+      $http.put($rootScope.baseUrl+'/api/transaksi/arrived/'+id, {id_kurir:idKurir})
         .success(function (response) {
           if (response.code == "SUCCESS_UPDATE") {
             callback(response.message);
@@ -113,6 +114,17 @@
         .success(function (response) {
           console.log(response);
           if (response.code == "SUCCESS_POST") {
+            callback(response.message);
+          }else{
+            callback(false);
+          }
+        })
+    }
+
+    function deleteDetailTransaksi(idDet, callback) {
+      $http.delete($rootScope.baseUrl+"/api/transaksi/detail/"+idDet)
+        .success(function (response) {
+          if (response.code == 'SUCCESS_DELETE') {
             callback(response.message);
           }else{
             callback(false);

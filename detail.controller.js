@@ -24,7 +24,6 @@
 
       function addToCart() {
         transaksiService.addToCart($rootScope.id, vm.jml, vm.produk.id, function (response) {
-          console.log(response);
           if (response == 'OK') {
             $state.go('basket');
           }

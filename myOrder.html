@@ -21,6 +21,7 @@
                                         <tr>
                                             <th>Id</th>
                                             <th>Date</th>
+                                            <th>Kurir</th>
                                             <th>Status</th>
                                             <th>Total</th>
                                             <th>Upload Receipt</th>
@@ -30,6 +31,7 @@
                                         <tr ng-repeat = "order in vm.orders">
                                             <td>{{$index+1}}</td>
                                             <td>{{order.waktu}}</td>
+                                            <td>{{order.kurir.user.name}}</td>
                                             <td >{{order.status}}</td>
                                             <td>{{order.total}}</td>
                                             <td>
@@ -54,7 +56,7 @@
                             <!-- /.table-responsive -->
 
                             <div class="box-footer">
-<!-- 
+<!--
                                 <div class="pull-right">
                                     <button type="submit" class="btn btn-primary">Next<i class="fa fa-chevron-right"></i>
 

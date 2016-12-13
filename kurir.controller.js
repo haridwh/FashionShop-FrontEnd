@@ -4,7 +4,7 @@
   angular.module('fashionshop')
     .controller('kurirController',controller);
 
-  function controller($http, transaksiService) {
+  function controller($http, transaksiService, $rootScope) {
     var vm = this;
 
     vm.transaksi = [];
@@ -20,7 +20,7 @@
     }
 
     function changeStatus(transaksi) {
-      transaksiService.changeStatus(transaksi.id, function (response) {
+      transaksiService.changeStatus(transaksi.id, $rootScope.id, function (response) {
         vm.transaksi.splice(vm.transaksi.indexOf(transaksi),1);
       })
     }
